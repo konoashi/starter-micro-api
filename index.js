@@ -10,6 +10,7 @@ app.post("/api/:anime/:episode/:timestamp/:firstwatching", async (req, res) => {
     let anime = req.params.anime;
     let episode = req.params.episode;
     let timestamp = req.params.timestamp;
+    let firstwatching = req.params.firstwatching
 
     myobj = {
         "Anime": anime,
