@@ -10,12 +10,22 @@ app.post("/api/:anime/:episode/:timestamp", async (req, res) => {
     let anime = req.params.anime;
     let episode = req.params.episode;
     let timestamp = req.params.timestamp;
-    console.log(anime);
-    /*let item = await client.db("my_db")
-                .collection("my_collection")
-                .findOne({my_item: my_item})
 
-    return res.json(item)*/
+    myobj = {
+        "Anime": anime,
+        "Episode": episode, 
+        "Timestamp": timestamp
+    }
+
+    let item = await client.db("Anime")
+                .collection("Queue")
+                .insertOne(myobj, function(err, res) {
+                    if (err) throw err;
+                    console.log("1 document inserted");
+                    db.close();
+                  });
+
+    return res.json("Success!")
 })
 
 client.connect(err => {
