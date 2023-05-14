@@ -17,8 +17,8 @@ app.post("/api/:anime/:episode/:timestamp", async (req, res) => {
         "Timestamp": timestamp
     }
 
-    let item = await client.db("Anime")
-                .collection("Queue")
+    let db = await client.db("Anime");
+                item.collection("Queue")
                 .insertOne(myobj, function(err, res) {
                     if (err) throw err;
                     console.log("1 document inserted");
