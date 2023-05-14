@@ -24,7 +24,6 @@ app.post("/api/:anime/:episode/:timestamp/:firstwatching", async (req, res) => {
                 .insertOne(myobj, function(err, res) {
                     if (err) throw err;
                     console.log("1 document inserted");
-                    db.close();
                   });
 
     return res.json("Success!")
