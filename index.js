@@ -6,7 +6,7 @@ const PORT = process.env.PORT || 3000
 const uri = process.env.MONGO_CONNECTION_STRING;
 const client = new MongoClient(uri);
 
-app.post("/api/:anime/:episode/:timestamp", async (req, res) => {
+app.post("/api/:anime/:episode/:timestamp/:firstwatching", async (req, res) => {
     let anime = req.params.anime;
     let episode = req.params.episode;
     let timestamp = req.params.timestamp;
@@ -14,7 +14,8 @@ app.post("/api/:anime/:episode/:timestamp", async (req, res) => {
     myobj = {
         "Anime": anime,
         "Episode": episode, 
-        "Timestamp": timestamp
+        "Timestamp": timestamp,
+        "First Watching": firstwatching
     }
 
     let db = await client.db("Anime");
