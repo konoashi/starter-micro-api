@@ -10,13 +10,17 @@ app.post("/api/:anime/:episode/:timestamp/:firstwatching", async (req, res) => {
     let anime = req.params.anime;
     let episode = req.params.episode;
     let timestamp = req.params.timestamp;
-    let firstwatching = req.params.firstwatching
+    let firstwatching = req.params.firstwatching;
+    let platform = req.params.platform;
+    let module_json_version = req.params.module_json_version;
 
     myobj = {
+        "Module JSON Version": module_json_version,
         "Anime": anime,
         "Episode": episode, 
         "Timestamp": timestamp,
-        "First Watching": firstwatching
+        "First Watching": firstwatching,
+        "Platform": platform
     }
 
     let db = await client.db("Anime");
