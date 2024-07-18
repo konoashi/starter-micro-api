@@ -2,13 +2,11 @@ const { MongoClient } = require('mongodb');
 require('dotenv').config()
 const express = require('express');
 const app = express();
-const PORT = process.env.PORT
+const PORT = process.env.PORT;
 
 
 const uri = process.env.MONGO_CONNECTION_STRING;
 const client = new MongoClient(uri);
-
-app.use(express.static(__dirname + '/static', { dotfiles: 'allow' }))
 
 app.post("/api/:anime/:episode/:timestamp/:firstwatching/:platform/:module_json_version", async (req, res) => {
     let anime = req.params.anime;
@@ -35,7 +33,7 @@ app.post("/api/:anime/:episode/:timestamp/:firstwatching/:platform/:module_json_
                 db.collection("Queue")
                 .insertOne(myobj, function(err, res) {
                     if (err) throw err;
-                    console.log("1 document inserted " + Date().toLocaleDateString());
+                    console.log("1 document inserted " + new Date(Date.now()));
                   });
 
     return res.json("Success!")
@@ -45,6 +43,6 @@ client.connect(err => {
     if(err){ console.error(err); return false;}
     // connection to mongo is successful, listen for requests
     app.listen(PORT, () => {
-        console.log("listening for requests " + Date().toLocaleDateString());
+        console.log("listening for requests " + new Date(Date.now()));
     })
 });
