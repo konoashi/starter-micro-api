@@ -7,7 +7,7 @@ const PORT = process.env.PORT || 3000
 const uri = process.env.MONGO_CONNECTION_STRING;
 const client = new MongoClient(uri);
 
-app.post("/api/:anime/:episode/:timestamp/:firstwatching", async (req, res) => {
+app.post("/api/:anime/:episode/:timestamp/:firstwatching/:platform/:module_json_version", async (req, res) => {
     let anime = req.params.anime;
     let episode = req.params.episode;
     let timestamp = req.params.timestamp;
