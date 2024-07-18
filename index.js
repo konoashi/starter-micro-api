@@ -39,6 +39,11 @@ app.post("/api/:anime/:episode/:timestamp/:firstwatching/:platform/:module_json_
     return res.json("Success!")
 })
 
+app.get("/api/:param", async (req, res) => {
+    let param = req.params.param;
+    return res.json(param)
+})
+
 client.connect(err => {
     if(err){ console.error(err); return false;}
     // connection to mongo is successful, listen for requests
