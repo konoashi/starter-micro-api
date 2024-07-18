@@ -16,11 +16,11 @@ app.post("/api/:anime/:episode/:timestamp/:firstwatching/:platform/:module_json_
     let module_json_version = req.params.module_json_version;
 
     myobj = {
-        "Module JSON Version": module_json_version,
+        "Module JSON Version": parseInt(module_json_version),
         "Anime": anime,
-        "Episode": episode, 
-        "Timestamp": timestamp,
-        "First Watching": firstwatching,
+        "Episode": parseInt(episode, 10), 
+        "Timestamp": parseInt(timestamp, 10),
+        "First Watching": Boolean(firstwatching),
         "Platform": platform
     }
 
