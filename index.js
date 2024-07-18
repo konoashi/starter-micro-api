@@ -35,7 +35,7 @@ app.post("/api/:anime/:episode/:timestamp/:firstwatching/:platform/:module_json_
                 db.collection("Queue")
                 .insertOne(myobj, function(err, res) {
                     if (err) throw err;
-                    console.log("1 document inserted " + Date.toLocaleDateString());
+                    console.log("1 document inserted " + Date().toLocaleDateString());
                   });
 
     return res.json("Success!")
@@ -45,6 +45,6 @@ client.connect(err => {
     if(err){ console.error(err); return false;}
     // connection to mongo is successful, listen for requests
     app.listen(PORT, () => {
-        console.log("listening for requests " + Date.toLocaleDateString());
+        console.log("listening for requests " + Date().toLocaleDateString());
     })
 });
