@@ -28,4 +28,6 @@ jobs:
           git pull origin main
           git status
           sudo npm install --only=prod
+          touch .env
+          echo MONGO_CONNECTION_STRING=${{ secrets.MONGO_CONNECTION_STRING }} >> .env
           pm2 restart starter-micro-api
