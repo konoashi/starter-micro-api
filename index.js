@@ -15,8 +15,12 @@ app.post("/api/:anime/:episode/:timestamp/:firstwatching/:platform/:module_json_
     let platform = req.params.platform;
     let module_json_version = req.params.module_json_version;
 
+    if (anime.charAt(0) === " ") {
+        anime = anime.slice(1);
+    }
+
     myobj = {
-        "Module JSON Version": parseInt(module_json_version),
+        "Module JSON Version": parseFloat(module_json_version),
         "Anime": anime,
         "Episode": parseInt(episode, 10), 
         "Timestamp": parseInt(timestamp, 10),
