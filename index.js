@@ -8,7 +8,7 @@ const PORT = process.env.PORT;
 const uri = process.env.MONGO_CONNECTION_STRING;
 const client = new MongoClient(uri);
 
-app.post("/api/:anime/:episode/:timestamp/:firstwatching/:platform/:module_json_version/:catchup", async (req, res) => {
+app.post("/api/:anime/:episode/:timestamp/:firstwatching/:platform/:module_json_version/:catchup/", async (req, res) => {
     let anime = req.params.anime;
     let episode = req.params.episode;
     let timestamp = req.params.timestamp;
@@ -26,7 +26,7 @@ app.post("/api/:anime/:episode/:timestamp/:firstwatching/:platform/:module_json_
         "Anime": anime,
         "Episode": parseInt(episode, 10), 
         "Timestamp": parseInt(timestamp, 10),
-        "Catching Up": catchup,
+        "Catching Up": Boolean(catchup),
         "First Watching": Boolean(firstwatching),
         "Platform": platform
     }
