@@ -3,3 +3,7 @@ package-lock.json
 package.json
 package.json
 node_modules/*
+public/final.js
+public/final.js.LICENSE.txt
+public/prod.js
+public/prod.js.LICENSE.txt

@@ -4,9 +4,9 @@ module.exports = {
   mode: 'production',
   entry: './index.js',
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'final.js',
+    filename: 'prod.js',
   },
   target: 'node',
 };
